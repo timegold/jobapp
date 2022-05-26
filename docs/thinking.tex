@@ -1,0 +1,1138 @@
+%% The class has an option which changes the formatting of the chapter
+%%% opener and part page. Follow the \documentclass command with
+%%% [opener-a]
+%%% [opener-b]
+%%% [opener-c]
+%%% [opener-d]
+%%% to switch between the background graphics. Leave the option blank for
+%%% a default, "graphic-less" part and chapter opener.
+
+% thesis version
+
+%\documentclass[final,11pt,onecolumn,a4paper,twoside]{scrbook}
+\documentclass[final,11pt,onecolumn,a4paper,twoside]{scrbook_gj}
+%\documentclass[draft,10pt,onecolumn,a4paper,twoside]{scrbook_gj}
+%{newsiambook}
+
+\usepackage{chngcntr}
+\counterwithout{section}{chapter}
+\counterwithout{figure}{chapter}
+\setcounter{secnumdepth}{3}
+%\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{3}
+\usepackage{amsmath}
+
+
+\iffalse
+ \newtheorem{theorem}{Theorem}[chapter]
+  \newtheorem{lemma}{Lemma}[chapter]
+  \newtheorem{corollary}{Corollary}[chapter]
+  \newtheorem{proposition}{Proposition}[chapter]
+  \newtheorem{definition}{Definition}[chapter]
+\fi
+
+\usepackage{afterpage}
+\usepackage[]{setspace}
+\onehalfspacing
+\usepackage[sort&compress,sectionbib]{natbib}
+\bibpunct{(}{)}{;}{a}{}{,}
+%\usepackage[LY1]{fontenc}
+%\usepackage[mtbold,LY1]{siammathtime}
+%\usepackage{bm}
+%%%\usepackage{epsfig}
+%%%\usepackage{graphicx}
+%%%\usepackage{graphics}
+%%%\usepackage{float}
+%%%\usepackage{floatfig}
+%\restylefloat{figure}
+\usepackage{makeidx}
+\usepackage{multicol}
+%\usepackage{subeqn}
+%\usepackage{chapterbib}
+%\usepackage{lucidbrb}
+\usepackage{palatino}
+\usepackage{amssymb}
+%\usepackage{amsfont}
+\usepackage{amsmath}
+%\usepackage{array}
+%\usepackage{appendix}
+\usepackage{rotating}
+%%%\usepackage{layout}
+
+
+
+% general newcommands
+\newcommand{\kmskpc}{km\, s$^{-1}$\, kpc$^{-1}$}
+\newcommand{\av}{$A_V$}
+\newcommand{\los}{line-of-sight}
+\newcommand{\vtheta}{$v_{\theta}$}
+\newcommand{\vrad}{$v_{\mathrm{r}}$}
+\newcommand{\vlos}{$v_{\mathrm{los}}$}
+\newcommand{\vc}{$v_{\mathrm{circ}}$}
+\newcommand{\Msun}{$\mathcal{M}_\odot$}
+\newcommand{\Rsun}{$R_{\odot}$}
+\newcommand{\Rbar}{$R_{\mathrm{bar}}$}
+
+\def\Lsun{\hbox{\it L$_\odot$}}
+\def\Mbol{\hbox{\it M$_{\rm bol}$}}
+\def\Msun{\hbox{\it M$_\odot$}}
+\def\Teff{\hbox{\it T$_{\rm eff}$}}
+
+
+
+\newcommand{\um}{$\mu$m}
+\newcommand{\kms}{km\thinspace s$^{-1}$}
+\newcommand{\htoo}{H$_{\rm 2}$O}
+\newcommand{\hcn}{H$^{\rm 13}$CN}
+
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\ba}{\begin{eqnarray}}
+\newcommand{\ea}{\end{eqnarray}}
+\newcommand{\etal}{et al.}
+\newcommand{\Ex}{\times10^}
+\newcommand{\comma}{\,,}
+\newcommand{\fullstop}{\,.}
+\newcommand{\onu}{_{\nu}}
+\newcommand{\jbar}{\overline{J}}
+\renewcommand{\textfraction}{0}
+
+%\setlength{\oddsidemargin}{54pt}
+%\setlength{\evensidemargin}{55pt}
+%\setlength{\paperwidth}{505pt}
+%\setlength{\paperheight}{722pt}
+%\setlength{\textwidth}{355pt}
+%\setlength{\textheight}{538pt}
+
+% proefschrift formaat
+
+\setlength{\oddsidemargin}{54pt}
+\setlength{\evensidemargin}{55pt}
+\setlength{\textwidth}{15.cm}
+\setlength{\textheight}{21.0cm}
+\setlength{\paperwidth}{18.0cm}
+\setlength{\paperheight}{24.0cm}
+
+% refereed version
+
+%\setlength{\oddsidemargin}{5pt}
+%\setlength{\evensidemargin}{5pt}
+%\setlength{\textwidth}{15cm}
+%\setlength{\textheight}{22.0cm}
+%\setlength{\paperwidth}{18.0cm}
+%\setlength{\paperheight}{26.0cm}
+
+%\usepackage{crop} 
+%\crop
+\makeindex
+% definitions used by included articles, reproduced here for 
+% educational benefit, and to minimize alterations needed to be made
+% in developing this sample file.
+
+\newcommand{\pe}{\psi}
+\def\d{\delta} 
+\def\ds{\displaystyle} 
+\def\e{{\epsilon}} 
+\def\eb{\bar{\eta}}  
+\def\enorm#1{\|#1\|_2} 
+\def\Fp{F^\prime}  
+\def\fishpack{{FISHPACK}} 
+\def\fortran{{FORTRAN}} 
+\def\gmres{{GMRES}} 
+\def\gmresm{{\rm GMRES($m$)}} 
+\def\Kc{{\cal K}} 
+\def\norm#1{\|#1\|} 
+\def\wb{{\bar w}} 
+\def\zb{{\bar z}} 
+% some definitions of bold math italics to make typing easier.
+% They are used in the corollary.
+
+\def\bfE{\mbox{\boldmath$E$}}
+\def\bfG{\mbox{\boldmath$G$}}
+
+
+% making the postscript output mode 
+
+\def\exeps{eps}
+\def\exps{ps}
+
+% making the pdf output mode 
+
+
+%\def\exeps{pdf}
+%\def\exps{pdf}
+
+%\rmfamily
+%Serif Font Family
+%\sffamily
+%Sans Serif Font Family
+%\ttfamily
+%Monospaced Font Family
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+
+\def\mnheh{\hbox{n$_{\rm He}$/n$_{\rm H}$}}
+\def\nnihe{\hbox{n$_{\rm N}$/n$_{\rm He}$}}
+\def\Mdot{\hbox{$\dot {M}$}}
+\def\Zdot{\hbox{$\dot {Z}$}}
+\def\Rsun{\hbox{\it R$_\odot$}}
+\def\Zsun{\hbox{\it Z$_\odot$}}
+\def\Rstar{\hbox{\it R$_*$}}
+\def\Lsun{\hbox{\it L$_\odot$}}
+\def\Lstar{\hbox{\it L$_*$}}
+\def\Lx{\hbox{\it L$_X$}}
+\def\Lbol{\hbox{\it L$_{bol}$}}
+\def\Mbol{\hbox{\it M$_{bol}$}}
+\def\Msun{\hbox{\it M$_\odot$}}
+\def\Minit{\hbox{\it M$_{\rm initial}$}}
+\def\Msunyr{\hbox{\it M$_\odot\,$yr$^{-1}$}}
+\def\Myr{\hbox{\it Myr}}
+\def\Gyr{\hbox{\it Gyr}}
+\def\kpc{\hbox{\it kpc}}
+\def\Teff{\hbox{\it T$_{\rm eff}$}}
+\def\Vinf{\hbox{$v_\infty$}}
+\def\I{\hbox{\it I}}
+\def\J{\hbox{\it J}}
+\def\H{\hbox{\it H}}
+\def\K{\hbox{\it K}}
+\def\mk{\hbox{\it K}}
+\def\Mk{\hbox{\it M$_{\rm K}$}}
+\newcommand{\Ks}{{\it K$_{\rm s}$}}
+\newcommand{\Al}{{\it A$_\lambda$}}
+\newcommand{\Aks}{{\it A$_{\rm K_{\rm s}}$}}
+\newcommand{\Ak}{{\it A$_{\rm K}$}}
+\newcommand{\Av}{{\it A$_{\rm V}$}}
+\newcommand{\sig}{$\sigma_{\rm A_{\rm K_{\rm s}}}$}
+\def\BCK{\hbox{\it BC$_{\rm K}$}}
+\def\BCV{\hbox{\it BC$_{\rm V}$}}
+\def\simgr{\mathrel{\hbox{\rlap{\hbox{\lower4pt\hbox{$\sim$}}}\hbox{$>$}}}}
+\def\HH{H{\sc ii}}	% HII region
+\def\ew{\hbox{\it EW$_{\rm 1.87~\micron}$}}
+\def\farcm{\hbox{$.\mkern-4mu^\prime$}}
+\def\farcs{\hbox{$.\!\!^{\prime\prime}$}} 
+
+
+\begin{document}
+%\initfloatingfigs
+
+
+% -----
+{\clearpage\thispagestyle{empty}}
+\begin{center}
+\ \\ {\LARGE Maria Messineo} \ \\
+\ \\ {\LARGE Hidden knowledge in the Milky Way} \ \\
+\vspace{1.5 cm}
+born in Petralia Soprana (Italy)\\
+in 1970 \\
+\end{center}
+% -----
+%\frontmatter
+\tableofcontents
+%\listoffigures
+%\listoftables
+%\begin{thepreface}\index{Preface}
+%\end{thepreface}
+\mainmatter
+
+
+   \chapter*{Hidden knowledge in the Milky Way }
+\chaptermark{}
+ 
+\begin{authorline}
+        M.\ Messineo
+        %\journal{Astronomy and Astrophysics (2004), submitted}
+\end{authorline}
+ 
+\begin{abstract} 
+Here is proposed the  creation of a catalog 
+of known Galactic red supergiants (RSGs)
+based on Gaia DR3 data.  
+The catalog of RSGs by \citet{messineo19}
+will be revised and used as the training set 
+for extracting new RSGs.
+Furthermore, several $1^\circ \times 1^\circ$ 
+fields across the Galactic plane 
+($15^\circ$, $25^\circ$, $35^\circ$) will be chosen
+and Gaia DR3 parameters 
+(parallaxes, spectral energy distribution, spectral-types
+temperatures, metallicity) of all 2MASS infrared bright stars
+with colors of  late-type stars (AGBs and RSGs) 
+will be analyzed, 
+for extracting  clean samples of RSGs and for estimating
+relative stellar counts and surface densities.
+Eventually, but not less important, new infrared constrains
+will be derived useful  for extracting   obscured
+candidate RSGs.
+\end{abstract}
+
+\section{State of the art and preliminary work:\\
+Bright late-type stars in the inner Galaxy}
+
+DENIS and 2MASS catalogs  were released at the end of the 90's. 
+That was very exciting, we had the first 
+near-infrared image surveys of the entire Galactic plane.
+Near-infrared data were combined with mid-infrared data from
+ISOGAL, MSX, and GLIMPSE and the selection of individual Galactic 
+stars based on their energy stellar distribution had started.
+Amazing work has been carried out since then,
+to discover that the Galactic disk is full of marvelous bubbles,
+and that there is an old Bar at the center of the Galaxy.
+We were searching for tracers, stellar tracers of the Galaxy,
+to decompose it into basic components.
+Asymptotic giant branch (AGB) stars and planetary nebulae were
+the first stellar tracers of the central bar, the
+stars of the central peanut box.
+
+Nowadays, we have arrived at the epoch of archeoastronomy 
+with millions of parallaxes, radial velocities, and spectra, 
+becoming publicly available and  
+ready to be used, as well as   time-series data.
+The entire book of Astronomy needs
+to be re-checked, everything has to be recomputed.
+But still, something is missing, and
+I am especially referring to the topic that
+I have mostly followed, i.e., to
+our knowledge of evolved late-type stars
+and evolved massive stars in the most obscured
+and central regions of the Milky Way.
+
+
+Massive stars allow for a morphological and kinematic 
+mapping of the youngest components of the Milky Way, 
+such as spiral arms and the central 200 pc disk, and
+it is commonly believed that the galactic Bar is 
+devoid of it.  
+Massive stars are a measure of the youth and 
+thickness of the disk, and they can be used to map 
+variations of chemical abundances in the disk. 
+Among them, RSGs are cool stars 
+with temperatures from 4500 K to 3000 K and 
+ages from 8 to 30 Myr. 
+In the inner Galaxy, uncertain distances and 
+dust obscuration  hamper 
+the detection of  RSGs, which remain hidden 
+in a sea of AGB stars. AGBs have   properties similar
+to those of RSGs, 
+but lower initial masses and are much older 
+(from  50 Myr to 12 Gyr). 
+In order to study the  evolution and morphology 
+of the Milky Way, {\it it is crucial to distinguish 
+RSGs from AGB stars}, as  their spatial distributions
+are predicted to be different in a barred gravitational
+potential. Only a few thousand RSGs  
+populate the Galaxy (less than 1,000 RSGs are known 
+ and more than 5,000 are expected). 
+But,  to enlarge this number a careful 
+analysis of their   dissimilarities is required.
+There is a large amount of Galactic data and  recent results  
+to be reconsidered to improve our  tools.
+
+Most of the forthcoming spectroscopic 
+surveys (GALAH, 4MOST, LAMOST), and time series (e.g. LSST)
+will be performed  with CCD  at optical wavelength, covering 
+only to 0.7-0.9 \um. The new data should allow
+for a precise classification of individual stars
+and to build a 3D image of the portion of the Galaxy observed.
+All the detailed knowledge acquired from the close 2-3 kpc,
+must, then, be applied to the inner Galaxy, 
+where most of the mass is.
+This presented study  aims
+to collect  new knowledge and to 
+build an infrared transfer function.
+
+\subsection{Evolved late-type stars}
+In this writing, the term "late-type stars" is used
+to indicate bright evolved stars cooler than 4600 K.
+They divide in RSGs and AGBs. \\
+RSGs are massive stars ($9 <$ masses $<40$ \Msun),  
+i.e., stars without a degenerated state in their 
+core, and are typically observed when burning He.\\
+AGB stars are stars of low and intermediate
+mass ( $<9$ \Msun) which are characterized by 
+two layers of burning matter, He in the inner shell
+and Hydrogen in the outer shell, while the central core 
+of CO is in an electron-degenerate state.
+
+AGB stars come with different chemistry.
+Those with masses from 1 to 5 \Msun\ 
+evolve from an O-rich envelope ($[$C/O$] <1$)
+to a C-rich envelope ($[$C/O$] <1$), 
+due to the dredge-up materials
+that enrich the surface. S-stars are stars 
+in an hybrid state, transiting toward a C-rich chemistry.
+
+
+
+Late-type stars are often named  with terms indicating 
+their variability type (e.g., Mira, semiregular, 
+irregular, long period variables, 
+and large amplitude variables)
+or their envelope types (e.g., OH/IR stars).
+
+
+\subsection{How are inner Galactic late-type stars
+photometrically identified?}
+
+A combination of near- and mid-infrared bands
+allows us to identify mass-loosing late-type stars.
+The availability of multi-wavelength photometry
+and improved spatial resolutions 
+(from 18.3 of MSX to a few arcs of GLIMPSE)
+allows doing that quite straightforwardly nowadays.
+Interstellar extinction reddens the stellar energy distribution.
+Mass-loss increases with  redder stellar colours, from 
+naked giants to enshrouded OH/IR stars which may have 
+circumstellar extinction even higher than \Av=40 mag.
+A good decomposition of the total interstellar extinction
+must be performed in the two basic components 
+(interstellar and  circumstellar).
+In \citet{messineo02} and \citet{messineo05}, 
+2MASS, DENIS, MSX, and ISOGAL
+catalogs were used to successfully extract a sample of 
+obscured SiO masing late-type stars and estimate their
+intrinsic colours.
+
+Nowadays, the availability of multi-wavelength data
+allows for a better determination of the Galactic 
+interstellar extinction laws, as well as for  good
+templates of the stellar energy distribution.
+One can define colors free of interstellar extinction which
+directly indicate a certain type of intrinsic
+stellar energy distribution (knowing the class of objects),
+and even  distinguish  certain classes of objects. 
+For example,  \citet{messineo12} analyzed near- 
+and mid-infrared colors of evolved 
+stars in the Galactic plane by using 2MASS and GLIMPSE data. 
+We use the $Q1$ and $Q2$ parameters, which are colors
+free of interstellar extinction. 
+These parameters represent deviations 
+of infrared color-color data points from the vector 
+of interstellar extinction. 
+It is possible to establish some criteria of selection 
+for a particular inner Galactic class of objects; 
+for example, Wolf Rayet (WR) stars and RSGs.  
+40\% of the known RSGs 
+appears bluer than Asymptotic Giant Branch 
+stars (AGB) and may be identified  by their narrower 
+range of $Q1$ and $Q2$.
+The predictions were successfully tested
+by \citet{messineo16} and \citet{messineo17}.
+The color criteria were used to spectroscopically search 
+in the GLIMPSE I North area of the inner Galaxy
+with 2mass and GLIMPSE data.
+About 50\% of the sample appeared to be consistent with 
+RSGs. Distances, however, remain the biggest issue.
+For obscured stars, usually distances are inferred 
+using the interstellar extinction as a meter of distances.
+Kinematic distances are not allowed in the central regions, 
+being the Galaxy characterized by  non-circular motion.
+However, these old photometric selections
+based on  single epoch data appear now
+ inadequate, because biased by a color cut and because based
+on single epoch measurements.
+Late-type stars vary often.
+With the huge amount of new data and library recently developed,
+and machine learning method, it is time to cross-correlate
+all available information. 
+
+\subsection{An infrared catalog of  known RSGs, mostly optically visible}
+In order to build a large scale view and history of the Milky Way, 
+I  spend a few years  making 
+a compilation of know Galactic RSGs from the literature.
+The catalog comprises about 1400 known candidate RSGs, 
+which appeared in the literature at least once as class I stars
+\citep{messineo19};
+most of the entries were already included in the 
+spectroscopic list by \citet{skiff14}. 
+The infrared photometric catalog was crossmatched
+with Gaia data  EDR3 \citep{messineo21z}, and good distances and 
+luminosity  were inferred for 966 stars.
+There is a  tail of 110 stars (11\%) brighter than the AGB 
+luminosity limit (Mbol=$-7.1$ mag); 
+at least  49\% of the stars are brighter than 
+Mbol=$-5.0$ mag and  earlier than M4, which means
+they are  more massive than 7 \Msun, 
+making them likely RSGs. 
+Unfortunately, 28\% of the sample appears to have luminosity below
+the tip of the red giants.
+By reordering it, a clean sample of RSGs
+is obtained. This nearby training set is a
+golden key for unlocking the inner Galaxy.
+%%
+%% Example of single figure
+%%
+\begin{figure}[ht!]
+ \centering
+ %%%\includegraphics[width=0.49\textwidth,clip]{calibsel_4.eps}   deltaG.eps   
+  \includegraphics[width=0.8\textwidth,clip]{fig/mbolbin_dr3.eps}      
+\caption{ \label{fig.lum-teff} 
+This Figure is taken from \citet{messineo21z} ans is  an updated version 
+of the figure number 7 appearing in \citet{messineo19}. The average
+\Mbol\ values per spectral type are plotted versus the
+\Teff\ values. The average \Mbol\ values estimated with distances 
+from \citet{bailer21} are used. 
+Black filled circles indicate the \Mbol\ values with EDR3 
+data for the sample of reference RSGs 
+(the \Mbol\ with DR2 values are shown in red). 
+Cyan crosses show the average \Mbol\ values 
+obtained with EDR3 data for class Ia and Iab stars 
+(for comparison, the previously
+\Mbol\ with DR2 values are shown in light orange).}
+\end{figure}
+
+\subsubsection{The luminosity-temperature relation}
+In \citet{messineo19}, the average magnitudes of RSGs 
+per spectral type are derived, and a revision with EDR3 Gaia data
+is made by \citet{messineo21z}.
+Interestingly, the stellar bolometric magnitudes 
+appear to linearly correlate  with  the stellar temperatures, 
+as shown in \ref{fig.lum-teff}.
+This is a remarkable relation because it may allow 
+astronomers to use RSGs as indicators of distances.
+
+
+%%
+%% Example of single figure
+%%
+\begin{figure}[ht!]
+\begin{center} 
+ %%%\includegraphics[width=0.49\textwidth,clip]{calibsel_4.eps}   deltaG.eps   
+  \includegraphics[width=0.5\textwidth,clip]{fig/messineo_nxnn.fig2.eps}      
+  \includegraphics[width=0.45\textwidth,clip]{fig/chathys-Iclass_plx.eps}      
+\end{center}
+\caption{ \label{fig.gaiaampl} 
+{\bf Right panel:} As in \citet{messineo20var}, differences beween the maximum and minimum 
+magnitudes measured in $G$-band versus spectral types. The legends list 
+the average $\Delta G$ measured in the areas of the HR-diagram defined 
+by \citet{messineo19} (from A to F). {\bf Left panel:}
+\Mk\ values vs. periods of Galactic RSGs. 
+Periods are from \citet{chatys19} and are marked with black diamonds. 
+Gaia variable late-type from the catalog of \citet{messineo19}
+are marked with filled circles in red.  
+The distances are from Gaia EDR3 \citep{messineo21z}.
+}
+\end{figure}
+
+
+\subsubsection{The period-luminosity relation of RSGs}\label{law}
+
+A well-studied sample of variable RSGs is listed in the work of 
+\citet{chatys19} and \citet{kiss06}, with data covering 
+61 years of observations.
+The authors analyzed data from the AAVSO archive to determine
+the stellar periods. RSGs may have a short
+period (100-1000 d) as well as a long period
+($>2000$ d), as already seen in bright Mira AGBs.  
+The periods of Galactic RSGs pulsating in 
+their fundamental mode are distributed around the relations
+derived by  \citet{soreisam18}.
+The RSG period-luminosity of stars pulsating in the 
+fundamental mode exists and appears to be independent
+of metallicity.  In the Milky Way, it is particularly difficult to
+determine it because of the small amplitudes, extinction, and 
+uncertain distances. Furthermore, RSGs have multiple periods,
+and often the  algorithm used to analyze the periodicity 
+may only yield the highest power frequency, which does not 
+necessarily correspond to the fundamental mode. 
+
+The fundamental mode pulsators in \citet{chatys19} 
+appear to  fall onto the  period-luminosity 
+relation found in M31 by \citet{soreisam18}, 
+but the temporal baseline is 60 years. 
+%The AAVSO periods are calculated with data taken over 61 years,
+%and the absolute magnitudes are calculated with Gaia EDR3
+%parallaxes \citet{messineo21z}. 
+Baselines  of a few years, such as those delivered by Gaia,
+will allows to determine only the short periods, and
+may have a period uncertainty of more than 100 d
+as Fig \ref{fig.gaiaampl} suggests.
+%{\it The long span of time 
+%is the  essential tool
+%for using the period-luminosity relation 
+%as a tool to infer distances.}
+
+While the periods of RSGs range from 100 to 1000, similarly to
+Mira AGB stars, the amplitudes of Galactic RSGs are
+smaller ($<0.8$ in $G$-band) than those of Mira AGBs (up to 8 mag).
+Therefore, {\it 
+amplitudes are a very useful tool  to separate RSGs from AGBs}; 
+furthermore,  amplitudes can be easily estimated. 
+About 10\% of the stars in  Messineo's catalog  
+are flagged as long-period variables \citep{holl18}. 
+Those variables coincide  with later spectral types from K5 to M7
+\citep{messineo20var};
+their average variation in $G$-band is 0.51 mag with a 
+dispersion around the mean of 0.38 mag,
+as shown in Fig. \ref{fig.gaiaampl}. 
+
+
+\subsection{Spectroscopic identification of RSGs}
+
+A large amount of optical spectroscopic surveys (Galah, 
+LAMOST, 4MOST) at high and medium resolution 
+is soon becoming available. This will constitute 
+{\bf a great test-bed for late-type stars},  
+to extract the useful differentiating properties 
+for the inner Galaxy where most of the Galactic 
+mass is located.\\
+The  GALAH survey is made with the HERMES detector
+on the Anglo-Australian Telescope and will release more 
+than 1 million spectra of Galactic southern stars 
+at R=28,000 in the 4700 to 7600 nm \citep[e.g.][]{sharma20}. 
+The 4MOST detector, installed on the ESO/Vista telescope,
+will survey the sky to acquire more than 20 million spectra 
+at R≈5000 (from 390 to 1000 nm) and R≈20,000 
+(from 395 to 456.5 nm \& from 587 to 673 nm) 
+of southern stars, starting on 2024 
+\citep[e.g.,][]{deJong12}.
+Gaia, LAMOST, and 4MOST are particularly useful because,
+by covering till 1 \um, they provide a bridge between the
+study of the nearby regions and the central Galaxy.
+
+
+Since late-type stars are cold,  
+they are naturally brighter at infrared light, where 
+extinction  is about 10 times lower than 
+at optical wavelengths.  
+Infrared detectors allow us to  penetrate 
+the inner Galactic regions.
+However, the spectra of RSGs and AGBs may appear very similar,
+and large spectral coverage and high-resolution are required to
+distinguish them. 
+Usually, the strength of CO band-heads at 2.29 \um\ and  
+the shape of the continuum, which 
+changes due to  water vapor absorption, are used
+to detect RSGs. However, 
+in about 7\% of RSGs water vapor is also seen.
+Furthermore, single epoch $K$-band observations 
+alone  do not allow to distinguish RSGs from all subtypes of AGB stars.
+While Mira AGB variables are easily identified by their strong water
+absorption, S-type stars   may look very similar  to RSGs. 
+Little is also known about the spectral appearance of 
+super AGB stars (s-AGB) stars.
+AGBs  are far more numerous
+than  RSGs. An in-depth spectroscopic study of these bright 
+luminous late-type stars is essential 
+for the proper construction of the Galactic
+luminosity functions of AGBs and RSGs, expecially 
+for the central regions,
+where parallaxes are not available.\\
+Recently, \citet{messineo21} analyzed low-resolution spectra 
+(R=2000) of late-type stars covering from 0.7 to 
+2.4 \um, 
+and identified five lines correlating in strengths 
+with the stellar luminosity (from 1.16 μm to 1.29 μm 
+due to  Fe, Ti, Mn, and Ca). This is very promising  
+as these atomic lines help us 
+to distinguish RSGs from AGBs in the inner Galaxy. 
+ 
+
+
+
+
+
+
+
+\subsection{Project-related publications}
+
+\begin{enumerate}
+\item    {\bf Messineo M.}, Habing H., Sjouwerman L., Omont A. \&
+    Menten K., {\it 86 GHz SiO maser survey of late-type stars in the Inner Galaxy. I.
+    Observational data}, 2002, A\&A 393, 115.
+    
+\item    {\bf Messineo M.}, Habing H.,   Menten K., Omont A. \& Sjouwerman L. {\it
+    86 GHz SiO maser survey of late-type stars in the Inner Galaxy. II.
+    Infrared photometry of the SiO target stars}, 2004, A\&A 418, 103.
+    
+\item    {\bf Messineo M.}, PhD thesis, {\it Late-type Giants in the Inner Galaxy}, 
+2004, Leiden University.
+
+
+\item    {\bf Messineo M.}, Habing H.,   Menten K., Omont A. , Sjouwerman L. \& Bertoldi, F.{\it
+    86 GHz SiO maser survey of late-type stars in the Inner Galaxy. III.
+    Interstellar extinction and colours of the SiO targets}, 2005, A\&A 435, 575.
+
+
+
+\item {\bf Messineo Maria}; Menten, K.,  Churchwell, E., and  Habing, H.,
+{\it  Near- and Mid-Infrared colors of  evolved stars in the Galactic plane.
+The $Q1$ and $Q2$ parameters.}, 2012 A\&A, 537,10
+
+\item Verheyen L., {\bf Messineo M.}, Menten K.M.,
+{\it SiO maser emission from red supergiants across the Galaxy. I. Targets in massive
+star clusters.}, 2012, A\&A 541,36
+
+
+		
+\item {\bf Maria Messineo}, Qingfeng Zhu, Valentin D. Ivanov, Karl~M. Menten, Ben Davies, 
+Donald F.  Figer, Rolf P. Kudritzki, and  C.-H. Rosie Chen,
+{\it Near-infrared Spectroscopy of a few candidate Red Supergiant Stars in  Clusters}, 2014, A\&A, 571, 43.
+
+
+\item
+{\bf Messineo M.}, Zhu Q., Menten K.M., Ivanov V.D., Figer D.F., Kudritzki R.-P. \& Chen C.-H. R.,
+{\it Discovery of an Extraordinary Number of Red Supergiants in the Inner Galaxy,} 2016, ApJL, 822, 5.
+
+\item
+{\bf Messineo M.}, Zhu Q., Menten K.M., Ivanov V.D., Figer D.F., Kudritzki R.-P. \& Chen C.-H. R.,
+{\it Red Supergiants in the Inner Galaxy: Stellar Properties,} 2017,  ApJ, 836, 65.
+
+\item    {\bf Messineo M.}, Habing H. J., Sjouwerman L. O., Omont A. \&
+    Menten K. M., {\it 86 GHz SiO maser survey of late-type stars in the Inner Galaxy. IV.
+    SiO emission and infrared data for sources 
+    in the Scutum and Sagittarius-Carina arms, $20^\circ < l < 50^\circ$.}, 2018, A\&A,619,35.
+
+\item {\bf Messineo M.}, Brown, A. G. A.
+{\it A Catalog of Known Galactic K-M Stars of Class I Candidate Red Supergiants in Gaia DR2.},
+2019, AJ, 158, 20.
+
+\item {\bf Messineo M.}, Sjouwerman, L. O., Habing, H. J., Omont A.
+{\it 86-GHz SiO masers in Galactic centre OH/IR stars.}, 
+2020, PASJ, 72, 63.
+
+
+
+\item  {\bf Messineo M.}, Figer D.F., Kudritzki R.-P., Zhu Q., Menten K. M.,
+Ivanov V.D., \& Chen C.-H. R.
+{\it New infrared spectral indices of luminous cold stars: 
+from early early K to M-type.} 2021, AJ, 162, 187.
+
+\end{enumerate}
+
+\begin{enumerate}
+
+\item  {\bf Messineo M.}, Petr-Gotzens M.G., Schuller F., Menten K.M., Habing H.J., Kissler-Patig M., Modigliani A., Reunanen, J.
+{\it Integral-field spectroscopy of the Galactic cluster [DBS2003]8. Discovery of an ultra-compact HII region and its ionizing star in 
+the bright rimmed cloud SFO49},  2007, A\&A, 472, 471.
+
+
+\item  {\bf Messineo M.}, Figer D.F., Davies B., Rich R.M.,  Valenti  E., Kudritzki, R.P.
+{\it Discovery of a Young Massive Stellar Cluster near HESS J1813-178}, 2008, ApJ, 683, 155.
+
+\item  {\bf Messineo M.}, Davies B., Ivanov V.D., Figer D.F., Schuller F., Habing H.J.,
+Menten K.M., Petr-Gotzens M.G. 
+{\it Near-Infrared Spectra of Galactic Stellar Clusters Detected on Spitzer/GLIMPSE Images.}, 2009, ApJ, 697, 701
+
+
+\item {\bf Messineo, Maria}; Figer, Donald F.; Davies, Ben; Kudritzki, R. P.; Rich, R. Michael; MacKenty, John; 
+Trombley, Christine, {\it HST/NICMOS observations of the GLIMPSE9 stellar cluster}, 2010, ApJ, 708, 1241
+
+\item {\bf Messineo, Maria}; Davies, Ben; Figer, Donald F.; Kudritzki, R. P.; Valenti, Elena; Trombley, Christine; Najarro, F.; Rich, R. Michael,
+{\it Massive Stars in the Cl 1813-178 Cluster: An Episode Of Massive Star Formation 
+in the W33 Complex",}  2011 ApJ, 733, 41.
+
+     
+\item {\bf M. Messineo}, K.~M. Menten, D.~F. Figer, B. Davies, J.~S. Clark, V.~D. Ivanov,
+R.-P. Kudritzki, R.M. Rich, J.W. MacKenty, C. Trombley
+{\it  Massive stars in the giant molecular cloud G23.3-0.3 and W41.}, 2014,  A\&A, 569, 20.
+
+
+\item {\bf Maria Messineo}, Donald F. Figer, J. Simon Clark, Rolf-P. Kudritzki, F. Najarro, R. Michael Rich,
+Karl M. Menten, Valentin D. Ivanov, Elena Valenti, Christine Trombley, C.-H. Rosie Chen, and Ben Davies,
+{\it Massive stars in the W33 giant molecular complex}, 2015, ApJ, 805, 110.
+    
+\item  {\bf Messineo M.}, Menten K. M., Figer D.F., Chen C.-H. R., \& Rich R.M.
+    {\it Detections of the massive stars in the cluster MCM2005B77, in the star-forming
+    regions  GRS G331.34−00.36 (S62) AND GRS G337.92−00.48 (S36).}, 2018, ApJ 862,10.
+     
+
+
+\item {\bf Messineo M.}, Menten K.M., Figer D.F., Clark J.S. 
+{\it Massive Stars in Molecular Clouds Rich in High-energy Sources: 
+The Bridge of G332.809-0.132 and CS 78 in NGC 6334.}, 
+2020, AJ, 160, 65.
+\end{enumerate}
+
+
+
+
+\section{  Research plan, including proposed research methods}
+\subsection{ Anticipated total duration of the project}
+Three years.
+
+\subsection{The Ultimate Objective}
+The work aims to optimize our knowledge on 
+classification of Galactic late-type stars.
+ With a comparative method, 
+the optical properties and infrared 
+of RSGs and AGBs stars
+will be revised. 
+The  new findings at optical wavelengths  should be translated
+at infrared wavelengths to define a new strategy 
+to distinguish RSGs from  AGBs
+and to build a catalog of candidate RSGs in the inner Galaxy.
+Such a catalog may serve as  the efficient input for 
+follow-up spectroscopic surveys.
+Such a catalog, alone, may provide a direct evidence for a
+different distribution on the Galactic plane
+of the two categories of stars.
+{\it It is a key project for the still hidden formation history
+of the Milky Way. Where are the central Disk 
+high-velocity RSGs? is there
+a population of RSGs populating the Galactic bar?}
+The distribution of RSGs may be a step function of age,
+and the low-end mass, 8-9 \Msun, could be populating the Bar.
+Stars of different ages are distributed differently on the
+Galactic plane.
+It may be misleading to talk about the initial 
+mass function of RSGs, without being able to clearly 
+distinguish RSGs from AGBs. 
+
+%Furthermore, one should talk perhaps
+%only about global mass function, due to the small number
+%of expected RSGs, statistical fluctuations, and 
+%age and metallicity of each Galactic components.
+
+
+\subsection{ Work program including proposed research methods}
+The money here request should serve to 
+finance three years of work.
+\begin{itemize}
+\item
+The first step (during the first and the second year) is to review the 
+properties of nearby RSGs.
+The catalog of 1400 known bright luminous late-type stars of 
+\citet{messineo19} will be updated with
+distances and parameters 
+(Temperatures, gravity, metallicity, periods, amplitudes) 
+released from the DR3 Gaia data. 
+As in \citet{messineo19}, this will be a fast compilation
+soon available to everybody for more detailed analysis.\\
+The parameters of the 470 million stars with Gaia DR3 BP/RP spectra
+can be exploited to extract new RSGs.\\
+\item
+The second step (during the second and the third year) 
+is to define reference stars in fields
+a moderate interstellar extinction
+which are easily accessible at both optical and 
+infrared wavelengths. 
+Reference stars (AGBs and RSGs) with known parameters 
+will be the training set.  
+Distances, extinction, luminosity, bolometric corrections,
+and mass-loss will be estimated.
+Improved infrared diagnostics to identify new RSGs will be established.
+Surface density per stellar type will be estimated.\\
+\item
+%The application of the new relations/criteria 
+%should automatically
+%generate the catalog of obscured candidate RSGs in the
+%inner Galactic  
+%with estimated parameters 
+%(e.g. extinction, distances, mass-loss, bolometric corrections). 
+%The search will be limited to point sources with
+%mid-infrared detections in the WISE and Spitzer catalogs
+%(second and third year).\\
+
+New candidate RSGs (without parallaxes) 
+will be also extracted and made available to everyone 
+for high-resolution infrared spectroscopy.
+Infrared spectroscopy is still quite expansive, 
+and a detection rate of 80\% is  preferable 
+for targeted surveys for  good use of telescope time. 
+A multi-slit spectrograph
+still requires a pre-selection of targets.
+Blind surveys are interesting, but they may only carried out 
+in  small selected areas of the sky.
+\end{itemize}
+ 
+\subsubsection{First step: Revised catalog of RSGs based on DR3}\label{law}
+
+A new version of the Gaia data release, DR3, will be released 
+on the upcoming June, 
+13th, 2022\footnote{https://www.cosmos.esa.int/web/gaia/dr3}.
+Besides the updated parallax values, the new release
+will provide new products. Astrometry parameters and 
+source classification for 1.59 billion sources will be 
+released, radial velocities from 33 million, as well as 
+astrophysical parameters 
+(spectral types, Teff, logg, [M/H], extinction) 
+for 470 million objects based on the low-resolution BP/RP spectra. 
+An updated catalog of variables will be also released, 
+from 86,000 LPV in DR2 to 1,700,000 in DR3.
+The first catalog of binary parameters with 813,687
+objects will be released.
+Light curves for 1,720,588 late-type stars.
+
+%\subsubsection{Revised Absolute Magnitude per spectral-types}\label{law}
+From a compilation of 1400 stars listed in the literature 
+as a possible RSGs, \citet{messineo19}  found
+889 sources with good Gaia DR2 parallaxes, 
+while \citet{messineo21z}
+retrieved 966  good Gaia EDR3 parallaxes. 
+The upcoming DR3 release (1.5 billion sources) may have 
+parallaxes for most of the 1400 candidates in Messineo's catalog.
+Furthermore, the Gaia DR3 by delivering temperatures,  
+spectral types, and gravity of 470 million stars with
+low-resolution BP/RP spectra will provide
+the first Gaia selected catalog of RSGs.
+Stars with $[M/H] <0.5$ dex and 
+logg $< 1$ cm s$^{-2}$, cool and with $G$-band amplitudes
+$< 0.5$ mag should be regarded
+as RSGs. This test sample may already allow us  
+to prepare for the first Gaia initial mass 
+function of Galactic RSGs. 
+
+The sample of reference stars Galactic RSGs  studied in
+\citet{messineo19} allowed us to obtain, for the first,   
+estimates of the average absolute magnitudes of RSGs 
+per bin of 1 spectral type and has revealed the
+existence of a clear relation between stellar temperatures
+and stellar luminosities, making them suitable direct
+indicators of distances for extragalactic studies.
+The DR3 release will  allow to refine
+the average magnitudes per spectral type 
+and the luminosity-temperature relation. 
+
+A revised catalog with a summary  of properties of known RSGs 
+(e.g. average magnitudes per spectral type,
+luminosity-temperature, luminosity-period,  
+and luminosity-gravity relations)
+will be delivered within the first year
+of the fellowship with a publication.  
+
+\subsubsection{Second step: The two extreme ends and contaminants}
+Have we learned to go down in luminosity and 
+with confidence separate AGBs from 8\Msun\ RSGs?
+and where are they? being old, they could be distributed
+differently than massive RSGs; for example, they could 
+be  populating the long Bar as AGB stars do.
+Are the low-mass end RSGs tracing the near-end side 
+of the Bar?
+This important issue requires  careful analysis,
+based on  secure stellar classes and spectral types.
+
+The second year of the fellowship should be
+spent comparing the properties of bright late-type 
+stars, i.e., super AGB stars (s-AGB), S-stars, Mira-AGBs, 
+and RSGs in a few designed fields of the Galaxy.
+Gaia spectral types and    Gaia BP/RP spectra 
+will allow a precise study of the stellar energy distribution.
+A large amount of broad-band photometry is already available
+from optical to infrared (e.g. SDSS, PANSTARRS, 2MASS, WISE).
+High-resolution spectra from LAMOST, 4MOST, and APOGEE could 
+supplement the Gaia low-resolution spectra 
+and provide spectral diagnostic
+in the red part of the spectrum.
+Existing catalogs of late-type stars
+will be  used to define/check the  set of reference stars,
+for example the LAMOST S-stars catalog by \citet{chen22},
+the compilation of Galactic AGBs  by \citet{suh21}.
+Luminosities will be estimated, and periods, amplitudes, and 
+spectroscopic parameters will be used 
+to estimate the luminosity class. 
+Relative counts of bright late-type stars 
+(brighter than the tip of the red giant branch)
+may be estimated in each studied field.
+
+Fields $1\degr \times 1\degr $ in size will be selected
+along the Galactic plane 
+(e.g., 45\degr, 35\degr, 25\degr, and 15\degr)
+at moderate extinction (\Ak=0.8-1.2 mag), where 
+the surface density of each type can be estimated. 
+In each field,  clean samples of RSGs, O-rich AGB, C-rich AGB, 
+and S-stars, will be extracted and properties and 
+relative density analysed. All properties will 
+be analyzed in a comparative manner (counts, luminosity ranges,
+intrinsic colours, amplitudes, periods). 
+
+\subsubsection{New catalogs of obscured candidate RSGs}
+From the detailed analysis in the selected fields,
+with the resulting tables in hands and count ratios, 
+it may be possible to obtain improved and more realistic
+infrared diagnostics/cuts for RSG selection in 
+the obscured inner Galaxy
+($-10^\circ <$ long $<+10^\circ$), where parallaxes
+are missing; for example, by building guesses on distances and 
+intrinsic stellar energy distribution, 
+and using any existing information
+on amplitudes. In summary, candidate RSGs can be extracted and the 
+fraction of contaminants will
+have an empirical-made function.
+
+
+\subsubsection{Strange objects: Thorne-\.{Z}ytkow Objects}
+
+The period-luminosity diagram is a good diagnostic tool
+to locate Thorne-\.{Z}ytkow Objects \citep[e.g.][]{grady20,demarchi21}. 
+Those rare objects
+are the merger product of a binary system with a neutron star. 
+Their appearance resemble RSGs, but there are peculiar 
+chemical signatures in their spectra. 
+There is only one such  object in the Magellanic Clouds 
+\citep{levesque14},
+and it has a large amplitude ($>4$ mag), which distinguishes 
+it from other RSGs. Bright objects lying in the RSGs sequence
+with large amplitudes must be considered for high-resolution
+spectroscopy. In  recent years, 
+these strange objects have earned more attention
+due to the new possibility to measure gravitational waves.
+It is possible that the LSST survey and Gaia survey 
+may unveil more of them,
+as about 100-200 such objects
+are expected to populate the  Milky Way \citep[e.g.][]{demarchi21}.
+
+%In the DR2 Gaia release there are only light-curves
+%for 137 out of 1406 (10\%) late-type stars 
+%listed by \citet{messineo19}.
+
+%The new Gaia releases with likely release periods for 50\%
+%of the sample of RSGs collected by \citet{messineo19}. 
+%Furthermore, new RSGs will be identified by Gaia.
+%It is possible that a new Galactic Thorne-Żytkow Object
+%will be identified, 
+
+%$\subsubsection{Concluding remarks: New learned tools to 
+%$select obscured RSGs}
+
+
+%$\subsubsection{A representative application work: the study 
+%$of one  Galactic association with identified RSGs 
+%$and early massive stars. Training the tools.}
+
+
+
+
+\section{Handling of research data}
+Tables and catalogues will be described in referred
+publications, and therefore stored in the Journal archive.
+Furthermore, the astronomical data products  will also
+be made available via repositories on  github 
+(github gives a warranty of 20 years on free repositories)
+and/or on the astronomical Vizier database
+$http://vizier.u-strasbg.fr/$.
+
+\section{Relevance of sex, gender and/or diversity}
+
+Astronomers do not discriminate in gender, and race.  
+Despite the great technical skills,  we do not let the new 
+era hybridize us, keeping high our human spirit.
+
+At the age of 51 years, Maria  returned back to 
+Europe. 
+%She was very welcome at the Chinese Institution,
+%but, she was  not within the age limits for most 
+%of the jobs there offered and her research contract
+%was not renewable. 
+Currently, She is applying for 
+several astronomical positions, as well as for 
+financial supports for her research. 
+COVID  is making the 
+re-entering process quite slow, and  now the 
+Ukrainian war is (at least temporarily) splitting
+the unified world of scientists.
+
+
+\section{Bibliography}  		     
+\bibliographystyle{aa}
+\bibliography{biblio}
+
+\section{Relevance of project to research career objectives}
+
+Despite being a simple program, devoted to create an
+updated catalog of RSGs with collection and 
+comparison of existing data, the program will
+contribute to a fundamental understanding
+of the history of our Galaxy evolution.
+The main aim is to improve the photometric identification
+of RSGs and AGBs, using  new available
+information, for example  on variability and extinction.
+
+It is believed that the Bar is old and dissolving 
+only populated by giants and AGB stars.
+Stellar migrations may account for a small 
+population of bright RSGs populating the Galactic Bar.
+Also one need to recall that what today 
+we call RSG population is only the bright 
+tail of such a population (12-25 \Msun), as we are 
+still unable to locate RSGs of 8-9 \Msun\
+which are supposedly much more numerous.
+
+
+\section{ Reasons for selecting host institution(s)}
+The Leibniz Institute for Astrophysics Potsdam (AIP)
+has a long tradition of stellar research and
+Milky Way stellar populations. The experts
+currently hired  make the science environment
+optimal for carrying out the research here prospected.
+
+\section{ Desired state date of fellowship}
+The reviewers may need a few months to decide.
+The work should be started as soon as possible,
+preferably before the beginning of the 
+next academic year (2022-2023).
+
+\section{ Additional publication costs}
+So far, Maria has published in  Peer Reviewed Journals,
+A\&A, AJ, ApJ, PASJ.
+Only A\&A is free of charge
+for astronomers affiliated to a European Institution.
+Usually, I choose the Journal depending on the topic
+and previous publications. 
+It would be nice to have a badget
+of 3000 euro (about 2 papers) to warranty
+publication of any produced material. 
+
+\section{ Additional funding}
+There are no other grant money that I can use.
+
+\section{ Regulation} 
+Maria is  planning to consider other funding
+for the same research only after having received your answer.
+She  is aware of your regulation:
+" in the case of multiple awards, accepting such a fellowship 
+before or after approval of the DFG fellowship precludes your 
+being able to accept fellowship funding from the DFG".
+
+\section{ Career plans}
+Maria would like to remain a researcher for the entire working life.
+She has at least 15 more years of work head, and she must 
+improve her skills to find funding grants. 
+
+\newpage
+\section{  Curriculum Vitae }
+\vspace{1. cm}
+\noindent {\bf Maria Messineo}
+
+\vspace{1. cm}
+Maria Messineo has extensively worked on Galactic stellar populations,
+with major focus on Galactic structure and evolution.
+She started her science activity in  1996, when she builded a 
+database of existing photometric data for 61 Globular Clusters 
+to determine  new metallicity indicators. 
+During the PhD she analyzed a sample of color-selected AGB stars, 
+and carried a search for SiO masers.  
+The maser kinematics revealed for the first time a clear 
+stellar component belonging to the central 200-pc nuclear disk 
+of the Milky Way.   From 2004 Maria is actively  
+studying   massive stars in the Galactic plane, 
+mainly at infrared wavelenghts. In particular, she
+has experimented several methods of  photometric source
+selection, and reported a successful survey of inner 
+Galactic RSGs. She is currently learning
+about time series to implements more complex, but efficient
+selections. Due to COVID and war, she has 
+self-sponsored herself for this last semenster. 
+
+
+\vspace{1.2 cm}
+\noindent Education\\
+PhD in Astronomy 2004, Leiden Observatory, Netherlands\\
+Master in Astronomy 1997, University of  Bologna, Italy\\
+
+\vspace{1.2 cm}
+\noindent Appointments\\
+11/2021 - present : USTC affiliated, and Freelancer in Brandenburg \\
+10/2015 - 11/2021 : Researcher at USTC\\
+10/2010 - 10/2015 : Researcher at the Max Planck Institut fuer Radioastronomy\\
+10/2009 - 09/2010 : ESA fellow \\
+07/2007 - 07/2009 : Postdoctoral researcher at the Rochester Institute of Technology\\
+09/2004 - 07/2007 : ESO fellow\\
+12/1999 - 06/2004 : PhD at the University of Leiden\\
+04/1999 - 11/1999 : Research Assistant at the Astronomical Observatory of Bologna\\
+06/1998 - 11/1998 : Summer Research Assistant at the Space Telescope Science Institute \\
+         			     
+				
+\printindex
+\end{document}
